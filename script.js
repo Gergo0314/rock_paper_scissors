@@ -1,17 +1,13 @@
 function randNum(n) {
+  //generates a random number between 0 and n
   return Math.floor(Math.random() * n);
 }
-//generates a random number between 0 and n
 
 function getComputerChoice() {
   const myList = ["rock", "paper", "scissors"]; //a list of possible choices
   const index = randNum(myList.length); //index = a random number between 0 and 2 (plugs 3 into randNum)
   return myList[index]; //returns a random item from myList
 }
-
-const playerInput = prompt("Choose your weapon (rock, paper, scissors)");
-const playerSelection = playerInput.toLowerCase(); //turns input into all lowercase
-const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
@@ -32,4 +28,15 @@ function playRound(playerSelection, computerSelection) {
     alert("You mistyped that, buckaroo!");
   }
 }
-playRound(playerSelection, computerSelection)
+
+function game() {
+  for (i = 0; i <= 4; i++) {
+    randNum();
+    getComputerChoice();
+    const playerInput = prompt("Choose your weapon (rock, paper, scissors)");
+    const playerSelection = playerInput.toLowerCase(); //turns input into all lowercase
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+  }
+}
+game();
