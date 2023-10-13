@@ -46,14 +46,14 @@ function game() {
     winner = playRound(playerSelection, computerSelection);
     switch (winner) {
       case "player": // player
-        playerScore++
-        break
+        playerScore++;
+        break;
       case "computer": // cpu win
-        computerScore++
-        break
+        computerScore++;
+        break;
       default: //tie
-        playerScore++
-        computerScore++
+        playerScore++;
+        computerScore++;
     }
     alert("Player: " + playerScore + " / " + "Computer: " + computerScore);
   }
@@ -62,7 +62,7 @@ game();
 
 if (playerScore === computerScore) {
   alert("No one wins this game. Play another 5 round to prove your worth!");
-} else if ( playerScore > computerScore) {
+} else if (playerScore > computerScore) {
   alert("Congratulations, you win the game!");
 } else {
   alert("Pfff, looooser! You lost...");
