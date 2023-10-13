@@ -61,9 +61,9 @@ function game() {
 game();
 
 if (playerScore === computerScore) {
-  alert("No one wins this game. Play another 5 round to prove your worth!");
+  alert("No one wins this game. Play another 5 rounds to prove your worth!");
 } else if (playerScore > computerScore) {
-  alert("Congratulations, you win the game!");
+  alert("Congratulations, you won the game!");
 } else {
   alert("Pfff, looooser! You lost...");
 }
