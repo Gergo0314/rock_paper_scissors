@@ -8,6 +8,25 @@ function getComputerChoice() {
   return myList[index]; //returns a random item from myList
 }
 
+const computerSelection = getComputerChoice();
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+  let playerSelection = "rock";
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () => {
+  let playerSelection = "paper";
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () => {
+  let playerSelection = "scissors";
+});
+
+const computerSelection = getComputerChoice();
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     alert("It's a tie!");
@@ -34,8 +53,9 @@ function playRound(playerSelection, computerSelection) {
     alert("You mistyped that, buckaroo!");
   }
 }
+playRound();
 
-var playerScore = 0;
+/*var playerScore = 0;
 var computerScore = 0;
 
 function game() {
@@ -67,3 +87,4 @@ if (playerScore === computerScore) {
 } else {
   alert("Pfff, looooser! You lost...");
 }
+*/
