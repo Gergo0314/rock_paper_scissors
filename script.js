@@ -26,10 +26,6 @@ scissors.addEventListener('click', () => {
 var playerScore = 0;
 var computerScore = 0;
 
-const para = document.querySelector('p');
-para.textContent = playerScore + ":" + computerScore;
-
-
 function playRound(playerSelection) {
   const computerSelection = getComputerChoice();
   if (playerSelection === computerSelection) {
