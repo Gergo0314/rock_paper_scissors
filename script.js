@@ -8,76 +8,83 @@ function getComputerChoice() {
   return myList[index]; //returns a random item from myList
 }
 
-const rock = document.querySelector('.rock');
-rock.addEventListener('click', () => {
-  playRound('rock');
+const rock = document.querySelector(".rock");
+rock.addEventListener("click", () => {
+  playRound("rock");
 });
 
-const paper = document.querySelector('.paper');
-paper.addEventListener('click', () => {
-  playRound('paper');
+const paper = document.querySelector(".paper");
+paper.addEventListener("click", () => {
+  playRound("paper");
 });
 
-const scissors = document.querySelector('.scissors');
-scissors.addEventListener('click', () => {
-  playRound('scissors');
+const scissors = document.querySelector(".scissors");
+scissors.addEventListener("click", () => {
+  playRound("scissors");
 });
 
-const para = document.querySelector('.text');
-const score = document.querySelector('.score');
+const announcement = document.querySelector(".text");
+const score = document.querySelector(".score");
+
+let playerScore = 0;
+let computerScore = 0;
+
+score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
 
 function playRound(playerSelection) {
-
-  let playerScore = 0;
-  let computerScore = 0;
   const computerSelection = getComputerChoice();
 
   if (playerSelection === computerSelection) {
-    para.textContent = "It's a tie!";
+    announcement.textContent = "It's a tie!";
     playerScore++;
     computerScore++;
-    score.textContent = playerScore + " : " + computerScore;
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
     return "tie";
-
-  }  if (playerSelection === "rock" && computerSelection === "paper") {
-    para.textContent = "Paper beats rock, you lost!";
+  }
+  if (playerSelection === "rock" && computerSelection === "paper") {
+    announcement.textContent = "Paper beats rock, you lost!";
     computerScore++;
-    score.textContent = playerScore + " : " + computerScore;
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
     return "computer";
-
-  }  if (playerSelection === "rock" && computerSelection === "scissors") {
-    para.textContent = "Rock beats scissors, you won!";
+  }
+  if (playerSelection === "rock" && computerSelection === "scissors") {
+    announcement.textContent = "Rock beats scissors, you won!";
     playerScore++;
-    score.textContent = playerScore + " : " + computerScore;
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
+
     return "player";
-
-  }  if (playerSelection === "scissors" && computerSelection === "rock") {
-    para.textContent = "Rock beats scissors, you lost!";
+  }
+  if (playerSelection === "scissors" && computerSelection === "rock") {
+    announcement.textContent = "Rock beats scissors, you lost!";
     computerScore++;
-    score.textContent = playerScore + " : " + computerScore;
-    return "computer";
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
 
-  }  if (playerSelection === "scissors" && computerSelection === "paper") {
-    para.textContent = "Scissors beat paper, you win!";
+    return "computer";
+  }
+  if (playerSelection === "scissors" && computerSelection === "paper") {
+    announcement.textContent = "Scissors beat paper, you win!";
     playerScore++;
-    score.textContent = playerScore + " : " + computerScore;
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
+
     return "player";
-
-  }  if (playerSelection === "paper" && computerSelection === "scissors") {
-    para.textContent = "Scissors beat paper, you lost!";
+  }
+  if (playerSelection === "paper" && computerSelection === "scissors") {
+    announcement.textContent = "Scissors beat paper, you lost!";
     computerScore++;
-    score.textContent = playerScore + " : " + computerScore;
-    return "computer";
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
 
-  }  if (playerSelection === "paper" && computerSelection === "rock") {
-    para.textContent = "Paper beats rock, you won!";
+    return "computer";
+  }
+  if (playerSelection === "paper" && computerSelection === "rock") {
+    announcement.textContent = "Paper beats rock, you won!";
     playerScore++;
-    score.textContent = playerScore + " : " + computerScore;
+    score.textContent = "Player " + playerScore + " : " + computerScore + " Computer";
+
     return "player";
   }
 }
 
-
+/*
 function game() {
   for (i = 0; i <= 4; i++) {
     const playerInput = prompt("Choose your weapon (rock, paper, scissors)");
