@@ -23,45 +23,61 @@ scissors.addEventListener('click', () => {
   playRound('scissors');
 });
 
-var playerScore = 0;
-var computerScore = 0;
+const para = document.querySelector('.text');
+const score = document.querySelector('.score');
 
 function playRound(playerSelection) {
+
+  let playerScore = 0;
+  let computerScore = 0;
   const computerSelection = getComputerChoice();
+
   if (playerSelection === computerSelection) {
-    alert("It's a tie!");
+    para.textContent = "It's a tie!";
+    playerScore++;
+    computerScore++;
+    score.textContent = playerScore + " : " + computerScore;
     return "tie";
-    playerScore++;
-    computerScore++;
+
   }  if (playerSelection === "rock" && computerSelection === "paper") {
-    alert("You lose! Paper beats rock");
-    return "computer";
+    para.textContent = "Paper beats rock, you lost!";
     computerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "computer";
+
   }  if (playerSelection === "rock" && computerSelection === "scissors") {
-    alert("You win! Rock beats scissors");
-    return "player";
+    para.textContent = "Rock beats scissors, you won!";
     playerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "player";
+
   }  if (playerSelection === "scissors" && computerSelection === "rock") {
-    alert("You lose! Rock beats scissors");
-    return "computer";
+    para.textContent = "Rock beats scissors, you lost!";
     computerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "computer";
+
   }  if (playerSelection === "scissors" && computerSelection === "paper") {
-    alert("You win! Scissors beats paper");
-    return "player";
+    para.textContent = "Scissors beat paper, you win!";
     playerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "player";
+
   }  if (playerSelection === "paper" && computerSelection === "scissors") {
-    alert("You lose! Scissors beats paper");
-    return "computer";
+    para.textContent = "Scissors beat paper, you lost!";
     computerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "computer";
+
   }  if (playerSelection === "paper" && computerSelection === "rock") {
-    alert("You win! Paper beats rock");
-    return "player";
+    para.textContent = "Paper beats rock, you won!";
     playerScore++;
+    score.textContent = playerScore + " : " + computerScore;
+    return "player";
   }
 }
 
 
-/*
 function game() {
   for (i = 0; i <= 4; i++) {
     const playerInput = prompt("Choose your weapon (rock, paper, scissors)");
@@ -84,6 +100,7 @@ function game() {
 }
 game();
 
+/*
 if (playerScore === computerScore) {
   alert("No one wins this game. Play another 5 rounds to prove your worth!");
 } else if (playerScore > computerScore) {
