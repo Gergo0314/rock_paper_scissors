@@ -20,9 +20,10 @@ const score = document.querySelector(".score");
 
 let playerScore = 0;
 let computerScore = 0;
+let clicks = 0;
 
 score.textContent =
-  "Player " + playerScore + " : " + computerScore + " Computer";
+  "You will play 5 rounds against the computer.";
 
 function playRound(playerSelection) {
   const computerSelection = getComputerChoice();
@@ -31,52 +32,70 @@ function playRound(playerSelection) {
     announcement.textContent = "It's a tie!";
     playerScore++;
     computerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "tie";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "rock" && computerSelection === "paper") {
-    announcement.textContent = "Paper beats rock, you lost!";
+    announcement.textContent = "Paper beats rock, you lose!";
     computerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "computer";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "rock" && computerSelection === "scissors") {
-    announcement.textContent = "Rock beats scissors, you won!";
+    announcement.textContent = "Rock beats scissors, you win!";
     playerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "player";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "scissors" && computerSelection === "rock") {
-    announcement.textContent = "Rock beats scissors, you lost!";
+    announcement.textContent = "Rock beats scissors, you lose!";
     computerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "computer";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "scissors" && computerSelection === "paper") {
     announcement.textContent = "Scissors beat paper, you win!";
     playerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "player";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "paper" && computerSelection === "scissors") {
-    announcement.textContent = "Scissors beat paper, you lost!";
+    announcement.textContent = "Scissors beat paper, you lose!";
     computerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "computer";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
   if (playerSelection === "paper" && computerSelection === "rock") {
-    announcement.textContent = "Paper beats rock, you won!";
+    announcement.textContent = "Paper beats rock, you win!";
     playerScore++;
+    clicks++;
     score.textContent =
-      "Player " + playerScore + " : " + computerScore + " Computer";
-    return "player";
+      "Player " + playerScore + " - " + computerScore + " Computer";
   }
+
+  buttons.forEach((button) => {
+    if (clicks === 5) {
+      button.disabled = true;
+    }
+  });
+
+  if (clicks === 5 && playerScore > computerScore) {
+    announcement.textContent = "Congratulations, you beat the computer! Reload the page to play again.";
+  }
+  if (clicks === 5 && playerScore < computerScore) {
+    announcement.textContent = "Wah-wah-waaah. The computer beat you, loser! Reload the page to play again.";
+  }
+  if (clicks === 5 && playerScore === computerScore) {
+    announcement.textContent = "It is a tie! Reload the page to play again.";
+  }
+  
+  
 }
 
 /*
@@ -87,17 +106,17 @@ function game() {
     const computerSelection = getComputerChoice();
     winner = playRound(playerSelection, computerSelection);
     switch (winner) {
-      case "player": // player
+      case "player"- // player
         playerScore++;
         break;
-      case "computer": // cpu win
+      case "computer"- // cpu win
         computerScore++;
         break;
-      default: //tie
+      default- //tie
         playerScore++;
         computerScore++;
     }
-    alert("Player: " + playerScore + " / " + "Computer: " + computerScore);
+    alert("Player- " + playerScore + " / " + "Computer- " + computerScore);
   }
 }
 game();
@@ -106,12 +125,8 @@ game();
 if (playerScore === computerScore) {
   alert("No one wins this game. Play another 5 rounds to prove your worth!");
 } else if (playerScore > computerScore) {
-  alert("Congratulations, you won the game!");
+  alert("Congratulations, you win the game!");
 } else {
-  alert("Pfff, looooser! You lost...");
+  alert("Pfff, looooser! You lose...");
 }
 */
-
-score.textContent =
-  "Player " + playerScore + " : " + computerScore + " Computer";
-score.textContent = `Clown ${playerScore} : ${computerScore} Computer`;
