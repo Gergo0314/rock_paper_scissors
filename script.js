@@ -98,35 +98,4 @@ function playRound(playerSelection) {
   
 }
 
-/*
-function game() {
-  for (i = 0; i <= 4; i++) {
-    const playerInput = prompt("Choose your weapon (rock, paper, scissors)");
-    const playerSelection = playerInput.toLowerCase(); //turns input into all lowercase
-    const computerSelection = getComputerChoice();
-    winner = playRound(playerSelection, computerSelection);
-    switch (winner) {
-      case "player"- // player
-        playerScore++;
-        break;
-      case "computer"- // cpu win
-        computerScore++;
-        break;
-      default- //tie
-        playerScore++;
-        computerScore++;
-    }
-    alert("Player- " + playerScore + " / " + "Computer- " + computerScore);
-  }
-}
-game();
 
-/*
-if (playerScore === computerScore) {
-  alert("No one wins this game. Play another 5 rounds to prove your worth!");
-} else if (playerScore > computerScore) {
-  alert("Congratulations, you win the game!");
-} else {
-  alert("Pfff, looooser! You lose...");
-}
-*/
